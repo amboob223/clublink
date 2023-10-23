@@ -1,0 +1,16 @@
+.outC {
+    display: flex;
+    justify-content: center;
+
+}
+
+.mainc {
+    display: flex;
+    justify-content: center;
+}
+
+.half {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}

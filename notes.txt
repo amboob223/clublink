@@ -1,0 +1,34 @@
+i want this app to use auth, map and grpahs and 
+Damove is a club connection app. I. Will make using an fp approach the classes are clubber and promoter and an app class for all the interactions between them
+	-it will connect promoters to club goers that want to party.
+		-promoter can post there section info, date, cost, and special request
+		 as well as a photo of the venue or section
+		 also the amount of club sections sold is monitored and graphed
+	-a user can post there information for promoters to contact them 
+		they can also sift through which club sections are open
+ 		the amount of clubbing is graphed
+
+    - we also make a confirm page when one is selected and the and then we have alert when it accepted
+
+	-It will require authentication 
+	- it will use a map to see how far you are from club location 
+
+
+Fp
+
+		-a method would be after 12:00 Monday all the data is erased
+	-user
+		-a method would be to add a promoter to an array of people you want to contact
+		
+	-promoter
+		-a method would be to add a user to an array of people you want to contact
+
+	- the confim page is clickeed when a person clicks on a promoters page or a promoteer
+Technologies 
+	I will user multer express node crypt chart.js map box cdn and a Postgres database 
+
+
+finish that
+put all the parts and components needed
+today to connect the parts and get it functional 
+then style 
