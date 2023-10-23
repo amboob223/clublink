@@ -16,16 +16,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- the script and link is the cdn for the plugin of the directions thing  -->
+    <!-- Include Mapbox GL Directions plugin -->
     <script
         src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
     <link rel="stylesheet"
         href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
         type="text/css">
 
-    <!-- we added below the cdn for the full screen  -->
+    <!-- Include Mapbox Fullscreen plugin -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: relative;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 
 </head>
 
@@ -55,93 +69,61 @@
                             sections
                             are available, as well as the name of the promoter and the logged-in user. When the
                             confirmation
-                            button
-                            is clicked, the user is added to an array that the promoter can access later.
+                            button is clicked, the user is added to an array that the promoter can access later.
                         </p>
 
-                        <div id='map' style='width: 400px; height: 300px;'></div>
+
+                        <div id='map' style='width: 800px; height: 600px;'></div> <!-- Set initial height -->
                         <script>
-
-
-
                             navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
                                 enableHighAccuracy: true
                             });
 
                             function successLocation(location) {
-
                                 setupMap([location.coords.longitude, location.coords.latitude]);
                             }
 
                             function errorLocation(error) {
-                                setupMap([37.6173, 55.755826])
+                                setupMap([37.6173, 55.755826]);
                             }
-                            // by defut we get the current locatiion but we will get the coordinates for the desired club perosn and then use that to get the distance 
 
                             function setupMap(center) {
-                                mapboxgl.accessToken = 'pk.eyJ1IjoibW9uazQwNCIsImEiOiJjbG52NHF0amIwaDliMmtzYW1xN2ZuN3U1In0.UKjl4M79UvKOVOEK9eANAg'; // Replace with your Mapbox access token
+                                mapboxgl.accessToken = 'pk.eyJ1IjoibW9uazQwNCIsImEiOiJjbG52NHF0amIwaDliMmtzYW1xN2ZuN3U1In0.UKjl4M79UvKOVOEK9eANAg';
                                 var map = new mapboxgl.Map({
                                     container: 'map',
                                     style: 'mapbox://styles/mapbox/streets-v11',
                                     center: center,
                                     zoom: 12
-
                                 });
 
-                                //these are the direction buttons 
                                 const nav = new mapboxgl.NavigationControl();
-
-                                // this is the navigation direction 
                                 var directions = new MapboxDirections({
-                                    accessToken: mapboxgl.accessToken, // we added our access token 
+                                    accessToken: mapboxgl.accessToken,
                                     unit: 'metric',
                                     profile: 'mapbox/cycling'
                                 });
 
-                                //full screen mapboxgl.accessToken = 'pk.eyJ1IjoibW9uazQwNCIsImEiOiJjbG52NHF0amIwaDliMmtzYW1xN2ZuN3U1In0.UKjl4M79UvKOVOEK9eANAg';
 
-
-
-
-                                //adding them both in 
                                 map.addControl(new mapboxgl.FullscreenControl());
 
-                                map.addControl(directions, 'top-left'); // we had to go to plugins on the map box page this plug in is driving navigation 
-                                map.addControl(nav); // to add the control we went to map box gls and makrers and control and search for navigation controls
 
-                                // this is for the directions
-                                //  var mapboxgl = require('mapbox-gl');
-                                // var MapboxDirections = require('@mapbox/mapbox-gl-directions');
+                                // Listen for the 'fullscreen' event
 
 
-
-
+                                map.addControl(directions, 'top-left');
+                                map.addControl(nav);
                             }
-
                         </script>
-                        <style>
-                            body {
-                                margin: 0;
-                                padding: 0;
-                            }
 
-                            #map {
-                                position: absolute;
-                                top: 0;
-                                bottom: 0;
-                                width: 100%;
-                            }
-                        </style>
+
                     </div>
-
 
 
                     <div class="container" style="width: 300px; height: 300px;">
                         <canvas id="club"></canvas>
                         <script>
                             const canvas = document.getElementById("club").getContext("2d");
-                            const data = [3]; // Replace this with your actual data
-
+                            const data = [3];
                             const chart = new Chart(canvas, {
                                 type: "bar",
                                 data: {
@@ -193,8 +175,4 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquV
