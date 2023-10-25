@@ -65,20 +65,30 @@ app.post("/login", async (req, res) => {
         res.status(500)
     }
 })
-app.post("/promo", async (req, res) => {
+app.post("/promo", upload.single("pic"), async (req, res) => {
     try {
-        const { namee, sections, phone, email, club, cost, description } = req.body
-        const pic = req.file.filename
-        const data = await pool.query(
-            "INSERT INTO promo(name,sections,club,phone,date,cost,pic,description) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *",
-            [namee, sections, phone, email, club, cost, pic, description]
-        );
-        res.json(data.rows[0])
+        const { namee, sections, club, phone, date, cost, description } = req.body;
+
+        if (req.file) { // Check if a file has been uploaded
+            const pic = req.file.filename;
+
+            const data = await pool.query(
+                "INSERT INTO promo(name,sections,club,phone,date,cost,pic,description) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *",
+                [namee, sections, club, phone, date, cost, pic, description]
+            );
+
+            res.json(data.rows[0]);
+            console.log("better")
+        } else {
+            // Handle the case where no file was uploaded
+            res.status(400).json({ error: "No file uploaded" });
+        }
     } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: "whats wrong" })
+        console.log(error);
+        res.status(500).json({ error: "Something went wrong" });
     }
 });
+
 
 app.get("/promo", async (req, res) => {
     try {
@@ -117,6 +127,6 @@ app.get("/user", async (req, res) => {
     }
 });
 
-app.listen(5000, () => {
+app.listen("5000", () => {
     console.log("cool")
 })

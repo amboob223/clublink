@@ -7,10 +7,9 @@ CREATE DATABASE club;
 -- Create the 'signup' table
 CREATE TABLE pass(
     id SERIAL PRIMARY KEY,
-    email VARCHAR(255), -- 'user' is a reserved keyword, so it should be enclosed in double quotes
+    email VARCHAR(255),
     password VARCHAR(255)
-)
-
+);
 -- Create the 'promo' table
 CREATE TABLE promo(
     id SERIAL PRIMARY KEY,
@@ -20,7 +19,7 @@ CREATE TABLE promo(
     phone VARCHAR(255),
     date VARCHAR(255),
     cost VARCHAR(255),
-    pic VARCHAR(255), -- Corrected 'bytea' data type
+    pic BYTEA, -- Corrected 'bytea' data type
     description VARCHAR(255)
 );
 
