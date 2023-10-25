@@ -4,7 +4,7 @@ const cors = require("cors");
 const pool = require("./db");
 const multer = require("multer");
 const path = require("path");
-const brcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 
 //middleware
 app.use(express.json());
@@ -30,24 +30,26 @@ const upload = multer({
 app.post("/signup", async (req, res) => {
     try {
         const { email, password } = req.body;
-        const saltRounds = 10
-        const hashedword = await brcrypt.hash(password, saltRounds)// we using await because we reaching out to a diffdrent tech 
+        const saltRounds = 10;
+        const hashedword = await bcrypt.hash(password, saltRounds); // Corrected typo: brcrypt -> bcrypt
         const data = await pool.query(
-            "INSERT INTO pass(email,password) VALUES($1,$2) RETURNING *",
+            "INSERT INTO pass(email, password) VALUES($1, $2) RETURNING *",
             [email, hashedword]
         );
-        res.json(data.rows[0])
+        res.json(data.rows[0]);
     } catch (error) {
-        console.log(error)
-        res.status(400).json
+        console.log(error);
+        res.status(400).json({ error: error.message }); // Send an error response with the error message
     }
 });
+
 
 app.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body
         const data = await pool.query(
-            "SELECT password FROM pass WHERE email = $1")
+            "SELECT password FROM pass WHERE email = $1",
+            [email])
 
         if (data.rows.length === 1) {
             const hashedPassword = data.rows[0].password;
@@ -103,18 +105,19 @@ app.get("/promo", async (req, res) => {
 
 app.post("/user", async (req, res) => {
     try {
-        const { namee, phone, email } = req.body
+        const { namee, phone, email } = req.body;
 
         const data = await pool.query(
-            "INSERT INTO promo(name,club,phone,date,cost,pic,description) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *",
+            "INSERT INTO \"user\" (name, phone, email) VALUES ($1, $2, $3) RETURNING *",
             [namee, phone, email]
         );
-        res.json(data.rows[0])
+        res.json(data.rows[0]);
     } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: "whats wrong" })
+        console.log(error);
+        res.status(500).json({ error: "Something went wrong" });
     }
 });
+
 
 app.get("/user", async (req, res) => {
     try {

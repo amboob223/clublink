@@ -32,18 +32,18 @@
                 <h1>Find a section clublink</h1>
                 <p> if you are looking for a section leave your info here and a promoter will reach out to you </p>
 
-                <form action="http://localhost:5000/user">
+                <form action="http://localhost:5000/user" method="post">
                     <div class="form-group">
-                        <label for="formGroupExampleInput">name</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                        <label for="namee">name</label>
+                        <input name="namee" type="text" class="form-control" id="namee" placeholder="name">
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput2">phone</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                        <label for="phone">phone</label>
+                        <input type="text" name="phone" class="form-control" id="phone" placeholder="phone">
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput">email</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                        <label for="email">email</label>
+                        <input type="text" name="email" class="form-control" id="email" placeholder="email">
                     </div>
 
                     <button id="ubtn">click</button>
@@ -82,6 +82,7 @@
     <footer>
 
     </footer>
+    <script src="user.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
