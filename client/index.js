@@ -57,3 +57,18 @@ login.addEventListener("click", async (event) => {
     }
 });
 
+const loginForm = document.getElementById("lform");
+const signupForm = document.getElementById("sform");
+
+const switchFormLink = document.getElementById("switchFormButton");
+
+switchFormLink.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (loginForm.style.display === "block") {
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+    } else {
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+    }
+});
