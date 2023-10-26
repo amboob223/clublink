@@ -14,3 +14,8 @@
     display: flex;
     justify-content: center;
 }
+
+#switchFormButton {
+    text-decoration: underline;
+    color: blue;
+}
