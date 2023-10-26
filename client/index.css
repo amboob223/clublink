@@ -19,3 +19,10 @@
     text-decoration: underline;
     color: blue;
 }
+
+.outC>.inc {
+
+    justify-content: center;
+    margin-top: 10%;
+
+}
