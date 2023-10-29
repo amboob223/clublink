@@ -63,7 +63,7 @@ app.post("/login", async (req, res) => {
 
         }
 
-        console.log("wrong")
+        console.log("work")
     } catch (error) {
         console.log(error)
         res.status(500)
@@ -124,7 +124,7 @@ app.post("/user", async (req, res) => {
 app.get("/user", async (req, res) => {
     try {
         const data = await pool.query(
-            "SELECT * FROM user;"
+            "SELECT * FROM \"user\";" // here we had to use this syntax since user is a key wors in postgres just use "user" since its a keyword
         );
         res.json(data.rows)
     } catch (error) {

@@ -30,5 +30,24 @@ Technologies
 
 finish that
 put all the parts and components needed
+
 today to connect the parts and get it functional 
+	-we got to conncect data to the graph and start styling it then we will put to gether
+	-we need to get the list then make each part of the list and it goes to the confirmation page 
+
 then style 
+
+on the user page 
+	-after we get the form we see all the promoters they contact and the club picture 
+	- they go to the confirm page and see the distance and amount fo open sections 
+	-we get all the club events for the appropriate date
+
+on promoter paage after we get the info we 
+	-we get a list of the perople who want to go to the club 
+	- the promoters get a list of the daily club goesr and can contact them
+	
+
+	in our auth we need to adjust for if we have the username alreay if so we vant log it in and if there is a duplicate it wont be queried anyway 
+
+
+	

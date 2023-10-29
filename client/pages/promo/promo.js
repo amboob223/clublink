@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
     const namee = document.getElementById("namee");
     const sections = document.getElementById("sections");
@@ -40,3 +41,55 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+const clubbersButton = document.getElementById("clubbers");
+const clubbersTable = document.getElementById("info");
+
+clubbersButton.addEventListener("click", async (event) => {
+    try {
+        event.preventDefault();
+
+        const data = await fetch("http://localhost:5000/user");
+        if (!data.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        const json = await data.json();
+        const tableHeader = clubbersTable.querySelector("thead"); // Select the <thead> element
+        tableHeader.style.display = 'table-header-group';
+
+        // Clear the table before populating it with data
+        clubbersTable.innerHTML = "";
+
+        if (json.length > 0) {
+            const thead = document.createElement("thead");
+            const row = thead.insertRow();
+
+            // Create table header cells
+            const headers = ["Name", "Phone", "Email"];
+            headers.forEach(headerText => {
+                const header = document.createElement("th");
+                header.textContent = headerText;
+                row.appendChild(header);
+            });
+
+            clubbersTable.appendChild(thead);
+
+            // Create table rows with user data
+            json.forEach(user => {
+                const userRow = clubbersTable.insertRow();
+                userRow.insertCell(0).textContent = user.name;
+                userRow.insertCell(1).textContent = user.phone;
+                userRow.insertCell(2).textContent = user.email;
+            });
+
+            // Show the header row when data is fetched
+            tableHeader.style.display = 'table-row-group';
+        } else {
+            console.log("No data found");
+        }
+    } catch (error) {
+        console.error("An error occurred:", error);
+    }
+});
+

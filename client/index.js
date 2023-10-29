@@ -26,7 +26,7 @@ auth.addEventListener("click", async (event) => {
     } catch (error) {
         console.log(error)
     }
-})
+}) // this is the one to sign up 
 
 //login
 login.addEventListener("click", async (event) => {
@@ -72,3 +72,12 @@ switchFormLink.addEventListener("click", (event) => {
         signupForm.style.display = "none";
     }
 });
+
+
+// <ul class="list-group">
+//     <li class="list-group-item">Cras justo odio</li>
+//     <li class="list-group-item">Dapibus ac facilisis in</li>
+//     <li class="list-group-item">Morbi leo risus</li>
+//     <li class="list-group-item">Porta ac consectetur ac</li>
+//     <li class="list-group-item">Vestibulum at eros</li>
+// </ul>
