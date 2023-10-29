@@ -56,15 +56,23 @@ clubbersButton.addEventListener("click", async (event) => {
 
         const json = await data.json();
         const tableHeader = clubbersTable.querySelector("thead"); // Select the <thead> element
-        tableHeader.style.display = 'table-header-group';
+
 
         // Clear the table before populating it with data
         clubbersTable.innerHTML = "";
 
         if (json.length > 0) {
             const thead = document.createElement("thead");
+            thead.classList.add("yay")
+            thead.style.display = 'table-header-group'
             const row = thead.insertRow();
 
+
+            // const co = document.querySelector("ese")
+
+            // co.addEventListener("click", () => {
+            //     console.log("persians")
+            // })
             // Create table header cells
             const headers = ["Name", "Phone", "Email"];
             headers.forEach(headerText => {
@@ -74,10 +82,17 @@ clubbersButton.addEventListener("click", async (event) => {
             });
 
             clubbersTable.appendChild(thead);
+            clubbersTable.classList.add("table");
 
             // Create table rows with user data
             json.forEach(user => {
                 const userRow = clubbersTable.insertRow();
+                userRow.classList.add("leg")
+                console.log(userRow)
+
+                userRow.addEventListener("click", () => {
+                    window.location.href = "/Users/playabook/Desktop/oct/clublink/client/pages/confim/confirm.html"
+                })
                 userRow.insertCell(0).textContent = user.name;
                 userRow.insertCell(1).textContent = user.phone;
                 userRow.insertCell(2).textContent = user.email;

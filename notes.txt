@@ -50,4 +50,4 @@ on promoter paage after we get the info we
 	in our auth we need to adjust for if we have the username alreay if so we vant log it in and if there is a duplicate it wont be queried anyway 
 
 
-	
+	homless rap battles go viral and half of the money generated from views go to person 
