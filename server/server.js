@@ -81,7 +81,7 @@ app.post("/promo", upload.single("pic"), async (req, res) => {
         const { namee, sections, club, phone, date, cost, description } = req.body;
 
         if (req.file) { // Check if a file has been uploaded
-            const pic = req.file.filename;
+            const pic = req.file;
 
             const data = await pool.query(
                 "INSERT INTO promo(name,sections,club,phone,date,cost,pic,description) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *",
