@@ -63,14 +63,26 @@
             <div class="mainc">
                 <div class="half">
                     <div>
-                        <h1>Confirmation Page</h1>
+                        <h1 id="mess">confirmation page</h1>
                         <p>
-                            Below you can see how far your location is from the club, and a bar graph of how many
-                            sections
-                            are available, as well as the name of the promoter and the logged-in user. When the
-                            confirmation
-                            button is clicked, the user is added to an array that the promoter can access later.
+                            the promoter's name <strong id="pname"></strong>
                         </p>
+                        <p>
+                            the promoters number is <strong id="phone"></strong>
+                        </p>
+
+                        <p>
+                            On ClubLink's confirmation page, we've got some handy info for you! Check out how far you
+                            are from the club, get a
+                            visual look at the available sections through a cool bar graph, and find out who the club's
+                            promoter is. Enjoy your club
+                            experience!
+                        </p>
+
+                        <div id="pic">
+
+                        </div>
+
 
 
                         <div id='map' style='width: 800px; height: 600px;'></div> <!-- Set initial height -->
@@ -122,8 +134,63 @@
                     <div class="container" style="width: 300px; height: 300px;">
                         <canvas id="club"></canvas>
                         <script>
+
+
+
+                            function getparametername(name) {
+                                const urlparams = new URLSearchParams(window.location.search)
+                                return urlparams.get(name)
+                            }
+
+                            function getparametersection(section) {
+                                const urlparams = new URLSearchParams(window.location.search)
+                                return urlparams.get(section)
+                            }
+
+                            function getparameterclubs(club) {
+                                const urlparams = new URLSearchParams(window.location.search)
+                                return urlparams.get(club)
+                            }
+
+                            function getparameterphone(phone) {
+                                const urlparams = new URLSearchParams(window.location.search)
+                                return urlparams.get(phone)
+                            }
+
+                            function getparameterpic(pic) {
+                                const urlparams = new URLSearchParams(window.location.search)
+                                return urlparams.get(pic)
+                            }
+
+                            const nay = getparametername("name")//this comes from the URL 
+                            const sec = getparametersection("sections")
+                            const cl = getparameterclubs("club")
+                            const ph = getparameterphone("phone")
+                            const pi = getparameterpic("pic")
+
+                            const mess = document.getElementById("mess")
+                            const pname = document.getElementById("pname")
+                            const phone = document.getElementById("phone")
+                            const photo = document.getElementById("pic")
+
+                            pname.innerText = nay
+                            mess.innerText = cl
+                            phone.innerText = ph
+                            photo.innerText = pi
+
+
+
+                            console.log(nay)
+                            console.log(cl)
+                            console.log(ph)
+                            console.log(pi)
+
+
+
+
                             const canvas = document.getElementById("club").getContext("2d");
-                            const data = [3];
+
+                            const data = [parseInt(sec)];
                             const chart = new Chart(canvas, {
                                 type: "bar",
                                 data: {

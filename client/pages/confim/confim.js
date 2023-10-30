@@ -1,12 +1,12 @@
-
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
     enableHighAccuracy: true
-})//this file make do you want to know location you can get the success location and the erorr location an enabe high accuracy 
+})//this file make do you want to know location you can get the success location and the error location and enable high accuracy 
 
 function successLocation(location) {
     console.log(location)
     setupMap([location.coords.longitude, location.coords])
 }
+
 function errorLocation(location) {
     console.log(location)
 }
@@ -18,6 +18,6 @@ function setupMap(center) {
         style: 'mapbox://styles/mapbox/streets-v11',
         center: center,
         zoom: 15
-
     });
 }
+

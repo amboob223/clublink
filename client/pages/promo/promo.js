@@ -90,12 +90,15 @@ clubbersButton.addEventListener("click", async (event) => {
                 userRow.classList.add("leg")
                 console.log(userRow)
 
-                userRow.addEventListener("click", () => {
-                    window.location.href = "/Users/playabook/Desktop/oct/clublink/client/pages/confim/confirm.html"
-                })
+                // userRow.addEventListener("click", () => {
+                //     window.location.href = "/Users/playabook/Desktop/oct/clublink/client/pages/confim/confirm.html"
+
+
+                // })
                 userRow.insertCell(0).textContent = user.name;
                 userRow.insertCell(1).textContent = user.phone;
                 userRow.insertCell(2).textContent = user.email;
+                console.log(user)
             });
 
             // Show the header row when data is fetched

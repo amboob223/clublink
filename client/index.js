@@ -4,29 +4,39 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const auth = document.getElementById("abtn");
 const login = document.getElementById("lbtn");
+const message = document.getElementById("message");
 
 auth.addEventListener("click", async (event) => {
     try {
-        event.preventDefault()
+        event.preventDefault();
 
         const body = {
             email: email.value,
             password: password.value,
+        };
 
-        }
         const response = await fetch("http://localhost:5000/signup", {
             method: "POST",
             headers: { "Content-type": "application/json" },
-            body: JSON.stringify(body)
+            body: JSON.stringify(body),
         });
 
-        //parse data 
-        const data = await response.json()
-        document.getElementById("message").innerText = `okay you are user number ${data.id}`
+        const data = await response.json();
+
+        if (response.status === 400 && data.error === "Email already exists") {
+            // Change the message when email already exists
+            message.innerText = "Username already accepted.";
+        } else {
+            // Display the default message
+            message.innerText = `Okay, you are user number ${data.id}`;
+        }
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-}) // this is the one to sign up 
+});
+
+// Rest of your JavaScript code remains the same
+// ...
 
 //login
 login.addEventListener("click", async (event) => {

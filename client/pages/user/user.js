@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const namee = document.getElementById("namee");
     const phone = document.getElementById("phone");
-    const email = document.getElementById("phone");
+    const email = document.getElementById("email");
     const ubtn = document.getElementById("ubtn");
 
     ubtn.addEventListener("click", async (event) => {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify(body)
             })
-            console.log("hhh")
+            console.log("beans")
         } catch (error) {
             console.log(error)
         }
@@ -53,9 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     const row = spotsTable.parentNode.querySelector("tbody").insertRow();
                     row.classList.add("git")
 
+
+
+                    console.log(element.pic)
                     //this is the part thhat makes this a link 
                     row.addEventListener("click", () => {
-                        window.location.href = "/Users/playabook/Desktop/oct/clublink/client/pages/confim/confirm.html"
+
+
+                        const pageurl = `/Users/playabook/Desktop/oct/clublink/client/pages/confim/confirm.html?name=${encodeURIComponent(element.name)}&sections=${encodeURIComponent(element.sections)}&club=${encodeURIComponent(element.club)}&phone=${encodeURIComponent(element.phone)}&pic=${element.pic}`
+                        window.location.href = pageurl
+
+
 
                     })
 

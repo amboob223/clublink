@@ -51,3 +51,11 @@ on promoter paage after we get the info we
 
 
 	homless rap battles go viral and half of the money generated from views go to person 
+
+	okay today I want to get the url stuff to get the data from the promo page and include it with the map api so we might change on of the column names to an address and we link it form the address of the user
+	and we need to be able to delete from the database with the time function and make where only one sign in per account 
+
+	-url	
+	-map
+	-style
+	-get with photo
