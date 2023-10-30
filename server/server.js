@@ -32,6 +32,13 @@ app.post("/signup", async (req, res) => {
         const { email, password } = req.body;
         const saltRounds = 10;
         const hashedword = await bcrypt.hash(password, saltRounds); // Corrected typo: brcrypt -> bcrypt
+        // Check if the email already exists in the database
+        const emailExists = await pool.query("SELECT * FROM pass WHERE email = $1", [email]);
+
+        if (emailExists.rows.length > 0) {
+            return res.status(400).json({ error: "Email already exists" });
+        }
+
         const data = await pool.query(
             "INSERT INTO pass(email, password) VALUES($1, $2) RETURNING *",
             [email, hashedword]
