@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     //this is the part thhat makes this a link 
                     row.addEventListener("click", () => {
 
-
-                        const pageurl = `/Users/playabook/Desktop/oct/clublink/client/pages/confim/confirm.html?name=${encodeURIComponent(element.name)}&sections=${encodeURIComponent(element.sections)}&club=${encodeURIComponent(element.club)}&phone=${encodeURIComponent(element.phone)}&pic=${element.pic}`
+                        const picval = element.pic
+                        const pageurl = `/Users/playabook/Desktop/oct/clublink/client/pages/confim/confirm.html?name=${encodeURIComponent(element.name)}&sections=${encodeURIComponent(element.sections)}&club=${encodeURIComponent(element.club)}&phone=${encodeURIComponent(element.phone)}&pic=${encodeURIComponent(element.pic)}`
                         window.location.href = pageurl
 
 
@@ -82,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     cell5.textContent = element.cost;
                     cell6.textContent = element.sections
                     cell7.textContent = element.name
+
+                    console.log(element.pic)
 
                 });
             } else {

@@ -55,7 +55,18 @@ on promoter paage after we get the info we
 	okay today I want to get the url stuff to get the data from the promo page and include it with the map api so we might change on of the column names to an address and we link it form the address of the user
 	and we need to be able to delete from the database with the time function and make where only one sign in per account 
 
-	-url	
-	-map
+	
 	-style
-	-get with photo
+	-get with photo - chat gpt and look over baba 
+
+
+		binary vs url 
+	If you store image URLs, you would fetch images from your server. 
+	If you store binary image data, you would retrieve the actual image content from the database.
+
+	-make a ciphering technology 
+		- so that people can send ciphered messages to each other
+		--have a part where they can make the settings and key 
+		   for the cipher after a while if s dnap sgot is not kept the language 
+		   is gone you got to take a screen shot to keep the key 
+        
