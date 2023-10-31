@@ -45,17 +45,38 @@
 
 <body>
     <header>
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link active" href="../promo/promo.html">Promoters</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../user/user.html">Clubbers</a>
-            </li>
-        </ul>
-        <div>
-            <a href="../../auth.html">Sign out</a>
-        </div>
+
+        <nav>
+
+
+
+            <div>
+
+
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../promo/promo.html">Promoters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../user/user.html">Clubbers</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div>
+                <a href="../../auth.html">Sign out</a>
+
+            </div>
+
+
+
+
+
+
+
+
+        </nav>
     </header>
 
     <main>
@@ -79,13 +100,24 @@
                             experience!
                         </p>
 
-                        <p>
-                            <strong>
-                                the Sections look like
-                            </strong> <img width=100px; height=100px; id="pic">
 
-                        </p>
+                        <div class="wiv">
+                            <div class="wiv-content">
+                                <div class="left-content">
+                                    <p>
+                                        <strong>
+                                            the Sections look like
+                                        </strong>
+                                    </p>
+                                    <img width="100" height="100" id="pic">
+                                </div>
+                                <div class="right-content">
+                                    <canvas id="club"></canvas>
+                                    <div class="container" style="width: 100px; height: 100px;"></div>
 
+                                </div>
+                            </div>
+                        </div>
 
 
 
@@ -135,105 +167,103 @@
                     </div>
 
 
-                    <div class="container" style="width: 300px; height: 300px;">
-                        <canvas id="club"></canvas>
-                        <script>
+
+
+                    <script>
 
 
 
-                            function getparametername(name) {
-                                const urlparams = new URLSearchParams(window.location.search)
-                                return urlparams.get(name)
-                            }
+                        function getparametername(name) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(name)
+                        }
 
-                            function getparametersection(section) {
-                                const urlparams = new URLSearchParams(window.location.search)
-                                return urlparams.get(section)
-                            }
+                        function getparametersection(section) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(section)
+                        }
 
-                            function getparameterclubs(club) {
-                                const urlparams = new URLSearchParams(window.location.search)
-                                return urlparams.get(club)
-                            }
+                        function getparameterclubs(club) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(club)
+                        }
 
-                            function getparameterphone(phone) {
-                                const urlparams = new URLSearchParams(window.location.search)
-                                return urlparams.get(phone)
-                            }
+                        function getparameterphone(phone) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(phone)
+                        }
 
-                            function getparameterpic(pic) {
-                                const urlparams = new URLSearchParams(window.location.search)
-                                return urlparams.get(pic)
-                            }
+                        function getparameterpic(pic) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(pic)
+                        }
 
-                            const nay = getparametername("name")//this comes from the URL 
-                            const sec = getparametersection("sections")
-                            const cl = getparameterclubs("club")
-                            const ph = getparameterphone("phone")
-                            const pi = getparameterpic("pic")
+                        const nay = getparametername("name")//this comes from the URL 
+                        const sec = getparametersection("sections")
+                        const cl = getparameterclubs("club")
+                        const ph = getparameterphone("phone")
+                        const pi = getparameterpic("pic")
 
-                            const mess = document.getElementById("mess")
-                            const pname = document.getElementById("pname")
-                            const phone = document.getElementById("phone")
+                        const mess = document.getElementById("mess")
+                        const pname = document.getElementById("pname")
+                        const phone = document.getElementById("phone")
 
-                            const photo = document.getElementById("pic")
+                        const photo = document.getElementById("pic")
 
-                            pname.innerText = nay
-                            mess.innerText = cl
-                            phone.innerText = ph
+                        pname.innerText = nay
+                        mess.innerText = cl
+                        phone.innerText = ph
 
-                            photo.src = `/Users/playabook/Desktop/oct/clublink/server/images/${pi}`
-
-
-
-                            console.log(nay)
-                            console.log(cl)
-                            console.log(ph)
+                        photo.src = `/Users/playabook/Desktop/oct/clublink/server/images/${pi}`
 
 
 
+                        console.log(nay)
+                        console.log(cl)
+                        console.log(ph)
 
 
-                            const canvas = document.getElementById("club").getContext("2d");
 
-                            const data = [parseInt(sec)];
-                            const chart = new Chart(canvas, {
-                                type: "bar",
-                                data: {
-                                    labels: ["Number of Club Sections"],
-                                    datasets: [
-                                        {
-                                            label: "Club Section",
-                                            borderColor: "red",
-                                            backgroundColor: "purple",
-                                            data: data,
-                                            fill: true
-                                        }
-                                    ]
-                                },
-                                options: {
-                                    scales: {
-                                        xAxes: [{
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }],
-                                        yAxes: [{
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }]
+
+
+                        const canvas = document.getElementById("club").getContext("2d");
+
+                        const data = [parseInt(sec)];
+                        const chart = new Chart(canvas, {
+                            type: "bar",
+                            data: {
+                                labels: ["Number of Club Sections"],
+                                datasets: [
+                                    {
+                                        label: "Club Section",
+                                        borderColor: "red",
+                                        backgroundColor: "purple",
+                                        data: data,
+                                        fill: true
                                     }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }],
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
                                 }
-                            });
-                        </script>
+                            }
+                        });
+                    </script>
 
-                        <div>
-                            <button>Confirm</button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
+        </div>
         </div>
     </main>
 

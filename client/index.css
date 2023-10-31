@@ -1,32 +1,98 @@
+/* Navbar styles */
+nav {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 2px solid gray;
+}
+
+/* Style the nav links */
+nav .nav-link {
+    color: white;
+    font-weight: bold;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav .nav-link:hover {
+    color: pink;
+}
+
+/* Style the "Sign out" link */
+nav a {
+    color: pink;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: turquoise;
+}
+
+/* Content container */
 .outC {
     display: flex;
     justify-content: center;
-
+    padding: 10px;
 }
 
 .mainc {
     display: flex;
     justify-content: center;
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .half {
     width: 50%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-#switchFormButton {
-    text-decoration: underline;
-    color: blue;
+/* Style the "Confirm" button */
+button {
+    background-color: turquoise;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.outC>.inc {
-
-    justify-content: center;
-    margin-top: 10%;
-
+button:hover {
+    background-color: pink;
 }
 
-.btn btn-primary {
-    margin: 2%
+/* Other adjustments you might need */
+#mess,
+strong {
+    color: pink;
+}
+
+#pic {
+    width: 100px;
+    height: 100px;
+    background-color: turquoise;
+    border-radius: 50%;
+    margin: 10px 0;
+}
+
+p {
+    color: white;
+}
+
+.wiv-content {
+    display: flex;
+    align-items: center;
+}
+
+.left-content {
+    flex: 1;
+}
+
+.right-content {
+    flex: 1;
 }
