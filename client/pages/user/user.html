@@ -141,44 +141,61 @@
                 <h1>Find a section clublink</h1>
                 <p> if you are looking for a section leave your info here and a promoter will reach out to you </p>
 
-                <form action="http://localhost:5000/user" method="post">
-                    <div class="form-group">
-                        <label for="namee">name</label>
-                        <input name="namee" type="text" class="form-control" id="namee" placeholder="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">phone</label>
-                        <input type="text" name="phone" class="form-control" id="phone" placeholder="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">email</label>
-                        <input type="text" name="email" class="form-control" id="email" placeholder="email">
-                    </div>
+                <table>
+                    <tr>
+                        <td>
+                            <form action="http://localhost:5000/user" method="post">
+                                <div class="form-group">
+                                    <label for="namee">name</label>
+                                    <input name="namee" type="text" class="form-control" id="namee" placeholder="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">phone</label>
+                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">email</label>
+                                    <input type="text" name="email" class="form-control" id="email" placeholder="email">
+                                </div>
 
-                    <button id="ubtn" class="btn btn-primary">click</button>
-                </form>
-                <button id="getclubs">
-                    Get Clubs
-                </button>
+                                <button id="ubtn" class="btn btn-primary" style="background-color: pink; color: white;"
+                                    onmouseover="this.style.backgroundColor='turquoise';"
+                                    onmouseout="this.style.backgroundColor='pink';">
+                                    click
+                                </button>
+
+
+                            </form>
+
+                        </td>
+                        <td style="vertical-align: top;">
+                            <button id="getclubs">
+                                Get Clubs
+                            </button>
+                            <table id="clubInfo" class="table">
+                                <thead style="display: none;"> <!-- Initially hide the table header -->
+                                    <tr>
+
+                                        <th scope="col">Club Name</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Cost</th>
+                                        <th scope="col">sections</th>
+                                        <th scope="col">name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Table rows will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
             </div>
         </div>
         <div>
-            <table id="clubInfo" class="table">
-                <thead style="display: none;"> <!-- Initially hide the table header -->
-                    <tr>
 
-                        <th scope="col">Club Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Cost</th>
-                        <th scope="col">sections</th>
-                        <th scope="col">name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table rows will be populated by JavaScript -->
-                </tbody>
-            </table>
         </div>
 
         <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

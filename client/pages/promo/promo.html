@@ -90,10 +90,8 @@
         }
 
         #pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 10px 0;
+
+            margin: 10px;
         }
 
         p {
@@ -145,65 +143,82 @@
                 <h1>Promote on clublink</h1>
                 <p> If you are promoting a club section, fill out the form below, and club-goers will reach out to you
                     to purchase the section.</p>
-                <form action="http://localhost:5000/promo" method="post">
-                    <div class="form-group">
-                        <label for="namee">Full name</label>
-                        <input type="text" class="form-control" id="namee" name="namee" placeholder="Full name">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">date</label>
-                        <input type="text" class="form-control" id="date" name="date" placeholder="date">
-                    </div>
-                    <div class="form-group">
-                        <label for="sections">Number of sections</label>
-                        <input type="text" class="form-control" id="sections" name="sections" placeholder="Sections">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="club">Club</label>
-                        <input type="text" class="form-control" id="club" name="club" placeholder="Club">
-                    </div>
-                    <div class="form-group">
-                        <label for="cost">Cost</label>
-                        <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost">
-                    </div>
-                    <div class="form-group">
-                        <label for="pic">Picture</label>
-                        <input type="file" class="form-control" id="pic" name="pic" placeholder="Picture"
-                            accept=".jpg,.jpeg,.png">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" placeholder="Description"
-                            cols="30" rows="10"></textarea>
-                    </div>
-                    <button id="pbtn" class="btn btn-primary">Submit</button>
-                </form>
+
+                <table>
+                    <tr>
+                        <td>
+                            <form action="http://localhost:5000/promo" method="post">
+                                <div class="form-group">
+                                    <label for="namee">Full name</label>
+                                    <input type="text" class="form-control" id="namee" name="namee"
+                                        placeholder="Full name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">date</label>
+                                    <input type="text" class="form-control" id="date" name="date" placeholder="date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sections">Number of sections</label>
+                                    <input type="text" class="form-control" id="sections" name="sections"
+                                        placeholder="Sections">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="club">Club</label>
+                                    <input type="text" class="form-control" id="club" name="club" placeholder="Club">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cost">Cost</label>
+                                    <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pic">Picture</label>
+                                    <input type="file" class="form-control" id="pic" name="pic" placeholder="Picture"
+                                        accept=".jpg,.jpeg,.png">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" id="description" name="description"
+                                        placeholder="Description" cols="30" rows="10"></textarea>
+                                </div>
+                                <button id="pbtn" class="btn btn-primary" style="background-color: pink; color: white;"
+                                    onmouseover="this.style.backgroundColor='turquoise';"
+                                    onmouseout="this.style.backgroundColor='pink';">Submit</button>
+                            </form>
             </div>
         </div>
 
+        </td>
+        <td style="vertical-align: top;">
+            <button id="clubbers">See Clubbers</button>
 
-        <div id="list">
-            <table id="info">
-                <thead style="display: none;"> <!-- Initially hide the header row -->
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                </thead>
-                <!-- Table content will be populated by JavaScript -->
-            </table>
-        </div>
-        <button id="clubbers" class="btn btn-primary">See Clubbers</button>
+            <div id="list">
+                <table id="info">
+                    <thead style="display: none;"> <!-- Initially hide the header row -->
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <!-- Table content will be populated by JavaScript -->
+                </table>
+            </div>
+
+
+
+        </td>
+        </tr>
+        </table>
+
 
 
 

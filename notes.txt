@@ -58,16 +58,21 @@ on promoter paage after we get the info we
 	
 	-style
 	-get with photo - chat gpt and look over baba 
+	- last thing make form and list side by side and make color for buttons and it should be workable for now 
+	-oh and we need to make a logo
 
 
 		binary vs url 
 	If you store image URLs, you would fetch images from your server. 
 	If you store binary image data, you would retrieve the actual image content from the database.
 
+	
 	-make a ciphering technology 
 		- so that people can send ciphered messages to each other
 		--have a part where they can make the settings and key 
 		   for the cipher after a while if s dnap sgot is not kept the language 
 		   is gone you got to take a screen shot to keep the key 
-        - stay at  aboutique or signature hotel 
+       
+	    - stay at  aboutique or signature hotel 
+		
 		- see does home warranty cover plumbing services
