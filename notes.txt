@@ -76,3 +76,6 @@ on promoter paage after we get the info we
 	    - stay at  aboutique or signature hotel 
 		
 		- see does home warranty cover plumbing services
+
+	-now all we got to do is deploy and put on portfolio
+	-next we go through code line by line and start on react native project
