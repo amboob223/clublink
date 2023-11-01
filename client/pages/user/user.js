@@ -60,7 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     row.addEventListener("click", () => {
 
                         const picval = element.pic
-                        const pageurl = `/Users/playabook/Desktop/oct/clublink/client/pages/confim/confirm.html?name=${encodeURIComponent(element.name)}&sections=${encodeURIComponent(element.sections)}&club=${encodeURIComponent(element.club)}&phone=${encodeURIComponent(element.phone)}&pic=${encodeURIComponent(element.pic)}`
+                        //the way we found the right url was by breaking it down file
+                        const pageurl = `../confim/confirm.html?name=${encodeURIComponent(element.name)}&sections=${encodeURIComponent(element.sections)}&club=${encodeURIComponent(element.club)}&phone=${encodeURIComponent(element.phone)}&pic=${encodeURIComponent(element.pic)}`
                         window.location.href = pageurl
 
 
