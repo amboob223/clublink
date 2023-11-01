@@ -127,48 +127,62 @@
 
             <div class="outC">
                 <div class="inc">
-                    <h1>
-                        Welcome to the Clublink
-                    </h1>
-                    <form id="sform" style="display: none;" action="http://localhost:5000/signup" method="post">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input name="email" type="email" class="form-control" id="email" placeholder="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input name="password" type="password" class="form-control" id="password"
-                                placeholder="Password">
-                        </div>
-                        <button id="abtn">Sign Up</button>
-                    </form>
+                    <table>
+                        <tr>
+                            <td>
+                                <h1>
+                                    Welcome to the Clublink
+                                </h1>
+                                <form id="sform" style="display: none;" action="http://localhost:5000/signup"
+                                    method="post">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input name="email" type="email" class="form-control" id="email"
+                                            placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input name="password" type="password" class="form-control" id="password"
+                                            placeholder="Password">
+                                    </div>
+                                    <button id="abtn">Sign Up</button>
+                                </form>
 
-                    <div>
-                        <form id="lform" action="http://localhost:5000/login" method="post">
-                            <div class="form-group">
-                                <label for="uemail">Email</label>
-                                <input name="uemail" type="text" class="form-control" id="uemail" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="upassword">Password</label>
-                                <input name="upassword" id="upassword" type="password" class="form-control"
-                                    id="upassword" placeholder="Password">
-                            </div>
+                                <div>
+                                    <form id="lform" action="http://localhost:5000/login" method="post">
+                                        <div class="form-group">
+                                            <label for="uemail">Email</label>
+                                            <input name="uemail" type="text" class="form-control" id="uemail"
+                                                placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="upassword">Password</label>
+                                            <input name="upassword" id="upassword" type="password" class="form-control"
+                                                id="upassword" placeholder="Password">
+                                        </div>
 
-                            <button id="lbtn">Login</button>
-                        </form>
+                                        <button id="lbtn">Login</button>
+                                    </form>
 
-                        <p>
-                            dont have an account yet
-                        <p id="switchFormButton">
-                            signup
-                        </p>
-                        </p>
-                    </div>
+                                    <p>
+                                        dont have an account yet
+                                    <p id="switchFormButton">
+                                        signup
+                                    </p>
+                                    </p>
+                            </td>
+                            <td>
+
+                                <img src="./img/clublink.png" alt="logo" width="300px" height="300px">
+                            </td>
+                        </tr>
+                    </table>
+
                 </div>
-
             </div>
-            <div id="message"></div>
+
+        </div>
+        <div id="message"></div>
         </div>
     </main>
     <footer>
