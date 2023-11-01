@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clublink</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        /* Apply the color scheme */
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        /* Navbar styles */
+        nav {
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 2px solid gray;
+        }
+
+        /* Style the nav links */
+        nav .nav-link {
+            color: white;
+            font-weight: bold;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav .nav-link:hover {
+            color: pink;
+        }
+
+        /* Style the "Sign out" link */
+        nav a {
+            color: pink;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: turquoise;
+        }
+
+        /* Content container */
+        .outC {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .mainc {
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .half {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style the "Confirm" button */
+        button {
+            background-color: turquoise;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: pink;
+        }
+
+        /* Other adjustments you might need */
+        #mess,
+        strong {
+            color: pink;
+        }
+
+        #pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px 0;
+        }
+
+        p {
+            color: white;
+        }
+
+        .wiv-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-content {
+            flex: 1;
+        }
+
+        .right-content {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+
+    </header>
+    <main>
+        <div class="coup">
+
+
+            <div class="outC">
+                <div class="inc">
+                    <table>
+                        <tr>
+                            <td>
+                                <h1>
+                                    Welcome to the Clublink
+                                </h1>
+                                <form id="sform" style="display: none;" action="http://localhost:5000/signup"
+                                    method="post">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input name="email" type="email" class="form-control" id="email"
+                                            placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input name="password" type="password" class="form-control" id="password"
+                                            placeholder="Password">
+                                    </div>
+                                    <button id="abtn">Sign Up</button>
+                                </form>
+
+                                <div>
+                                    <form id="lform" action="http://localhost:5000/login" method="post">
+                                        <div class="form-group">
+                                            <label for="uemail">Email</label>
+                                            <input name="uemail" type="text" class="form-control" id="uemail"
+                                                placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="upassword">Password</label>
+                                            <input name="upassword" id="upassword" type="password" class="form-control"
+                                                id="upassword" placeholder="Password">
+                                        </div>
+
+                                        <button id="lbtn">Login</button>
+                                    </form>
+
+                                    <p>
+                                        dont have an account yet
+                                    <p id="switchFormButton">
+                                        signup
+                                    </p>
+                                    </p>
+                            </td>
+                            <td>
+
+                                <img src="./img/clublink.png" alt="logo" width="300px" height="300px">
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        <div id="message"></div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clublink</title>
+
+    <!-- Include Mapbox and Chart.js libraries -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+    <!-- Add your CSS stylesheets -->
+    <link rel="stylesheet" href="../../index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Include Mapbox GL Directions plugin -->
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
+        type="text/css">
+
+    <!-- Include Mapbox Fullscreen plugin -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        /* Navbar styles */
+        nav {
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 2px solid gray;
+        }
+
+        /* Style the nav links */
+        nav .nav-link {
+            color: white;
+            font-weight: bold;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav .nav-link:hover {
+            color: pink;
+        }
+
+        /* Style the "Sign out" link */
+        nav a {
+            color: pink;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: turquoise;
+        }
+
+        /* Content container */
+        .outC {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .mainc {
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .half {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style the "Confirm" button */
+        button {
+            background-color: turquoise;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: pink;
+        }
+
+        /* Other adjustments you might need */
+        #mess,
+        strong {
+            color: pink;
+        }
+
+        #pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 40%;
+            margin: 10px 0;
+        }
+
+        p {
+            color: white;
+        }
+
+        .wiv-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-content {
+            flex: 1;
+        }
+
+        .right-content {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="../../index.html">
+                    <img src="../../img/clublink.png" alt="logo" width="80px" height="80px">
+                </a>
+            </div>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="../promo/promo.html">Promoters</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./user.html">Clubbers</a>
+                </li>
+            </ul>
+            <div>
+                <a href="../../auth.html">sign out</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="outC">
+            <div class="mainc">
+                <div class="half">
+                    <div>
+                        <h1 id="mess">confirmation page</h1>
+                        <p>
+                            the promoter's name <strong id="pname"></strong>
+                        </p>
+                        <p>
+                            the promoters number is <strong id="phone"></strong>
+                        </p>
+
+                        <p>
+                            On ClubLink's confirmation page, we've got some handy info for you! Check out how far you
+                            are from the club, get a
+                            visual look at the available sections through a cool bar graph, and find out who the club's
+                            promoter is. Enjoy your club
+                            experience!
+                        </p>
+
+
+                        <div class="wiv">
+                            <div class="wiv-content">
+                                <div class="left-content">
+                                    <p>
+                                        <strong>
+                                            the Sections look like
+                                        </strong>
+                                    </p>
+                                    <img width="200px" height="200px" id="pic">
+                                </div>
+                                <div class="right-content">
+                                    <canvas id="club"></canvas>
+                                    <div class="container" style="width: 100px; height: 100px;"></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div id='map' style='width: 800px; height: 600px;'></div> <!-- Set initial height -->
+                        <script>
+                            navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+                                enableHighAccuracy: true
+                            });
+
+                            function successLocation(location) {
+                                setupMap([location.coords.longitude, location.coords.latitude]);
+                            }
+
+                            function errorLocation(error) {
+                                setupMap([37.6173, 55.755826]);
+                            }
+
+                            function setupMap(center) {
+                                mapboxgl.accessToken = 'pk.eyJ1IjoibW9uazQwNCIsImEiOiJjbG52NHF0amIwaDliMmtzYW1xN2ZuN3U1In0.UKjl4M79UvKOVOEK9eANAg';
+                                var map = new mapboxgl.Map({
+                                    container: 'map',
+                                    style: 'mapbox://styles/mapbox/streets-v11',
+                                    center: center,
+                                    zoom: 12
+                                });
+
+                                const nav = new mapboxgl.NavigationControl();
+                                var directions = new MapboxDirections({
+                                    accessToken: mapboxgl.accessToken,
+                                    unit: 'metric',
+                                    profile: 'mapbox/cycling'
+                                });
+
+
+                                map.addControl(new mapboxgl.FullscreenControl());
+
+
+                                // Listen for the 'fullscreen' event
+
+
+                                map.addControl(directions, 'top-left');
+                                map.addControl(nav);
+                            }
+                        </script>
+
+
+                    </div>
+
+
+
+
+                    <script>
+
+
+
+                        function getparametername(name) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(name)
+                        }
+
+                        function getparametersection(section) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(section)
+                        }
+
+                        function getparameterclubs(club) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(club)
+                        }
+
+                        function getparameterphone(phone) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(phone)
+                        }
+
+                        function getparameterpic(pic) {
+                            const urlparams = new URLSearchParams(window.location.search)
+                            return urlparams.get(pic)
+                        }
+
+                        const nay = getparametername("name")//this comes from the URL 
+                        const sec = getparametersection("sections")
+                        const cl = getparameterclubs("club")
+                        const ph = getparameterphone("phone")
+                        const pi = getparameterpic("pic")
+
+                        const mess = document.getElementById("mess")
+                        const pname = document.getElementById("pname")
+                        const phone = document.getElementById("phone")
+
+                        const photo = document.getElementById("pic")
+
+                        pname.innerText = nay
+                        mess.innerText = cl
+                        phone.innerText = ph
+
+                        photo.src = `/Users/playabook/Desktop/oct/clublink/server/images/${pi}`
+
+
+
+                        console.log(nay)
+                        console.log(cl)
+                        console.log(ph)
+
+
+
+
+
+                        const canvas = document.getElementById("club").getContext("2d");
+
+                        const data = [parseInt(sec)];
+                        const chart = new Chart(canvas, {
+                            type: "bar",
+                            data: {
+                                labels: ["Number of Club Sections"],
+                                datasets: [
+                                    {
+                                        label: "Club Section",
+                                        borderColor: "red",
+                                        backgroundColor: "purple",
+                                        data: data,
+                                        fill: true
+                                    }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }],
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+
+    <!-- Include jQuery, Popper.js, and Bootstrap JavaScript libraries if needed -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquV

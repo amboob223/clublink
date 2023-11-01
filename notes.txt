@@ -1,0 +1,81 @@
+i want this app to use auth, map and grpahs and 
+Damove is a club connection app. I. Will make using an fp approach the classes are clubber and promoter and an app class for all the interactions between them
+	-it will connect promoters to club goers that want to party.
+		-promoter can post there section info, date, cost, and special request
+		 as well as a photo of the venue or section
+		 also the amount of club sections sold is monitored and graphed
+	-a user can post there information for promoters to contact them 
+		they can also sift through which club sections are open
+ 		the amount of clubbing is graphed
+
+    - we also make a confirm page when one is selected and the and then we have alert when it accepted
+
+	-It will require authentication 
+	- it will use a map to see how far you are from club location 
+
+
+Fp
+
+		-a method would be after 12:00 Monday all the data is erased
+	-user
+		-a method would be to add a promoter to an array of people you want to contact
+		
+	-promoter
+		-a method would be to add a user to an array of people you want to contact
+
+	- the confim page is clickeed when a person clicks on a promoters page or a promoteer
+Technologies 
+	I will user multer express node crypt chart.js map box cdn and a Postgres database 
+
+
+finish that
+put all the parts and components needed
+
+today to connect the parts and get it functional 
+	-we got to conncect data to the graph and start styling it then we will put to gether
+	-we need to get the list then make each part of the list and it goes to the confirmation page 
+
+then style 
+
+on the user page 
+	-after we get the form we see all the promoters they contact and the club picture 
+	- they go to the confirm page and see the distance and amount fo open sections 
+	-we get all the club events for the appropriate date
+
+on promoter paage after we get the info we 
+	-we get a list of the perople who want to go to the club 
+	- the promoters get a list of the daily club goesr and can contact them
+	
+
+	in our auth we need to adjust for if we have the username alreay if so we vant log it in and if there is a duplicate it wont be queried anyway 
+
+
+	homless rap battles go viral and half of the money generated from views go to person 
+
+	okay today I want to get the url stuff to get the data from the promo page and include it with the map api so we might change on of the column names to an address and we link it form the address of the user
+	and we need to be able to delete from the database with the time function and make where only one sign in per account 
+
+	
+	-style
+	-get with photo - chat gpt and look over baba 
+	- last thing make form and list side by side and make color for buttons and it should be workable for now 
+	-oh and we need to make a logo
+
+
+		binary vs url 
+	If you store image URLs, you would fetch images from your server. 
+	If you store binary image data, you would retrieve the actual image content from the database.
+
+	
+	-make a ciphering technology 
+		- so that people can send ciphered messages to each other
+		--have a part where they can make the settings and key 
+		   for the cipher after a while if s dnap sgot is not kept the language 
+		   is gone you got to take a screen shot to keep the key 
+       
+	    - stay at  aboutique or signature hotel 
+		
+		- see does home warranty cover plumbing services
+
+	-now all we got to do is deploy and put on portfolio
+	-next we go through code line by line and start on react native project
